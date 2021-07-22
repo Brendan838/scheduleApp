@@ -102,19 +102,21 @@ saveLocal(five, 8)
 })
 
 function saveLocal(time, i) {
+if (setData){
 setData.scheduleArray[i] = time.value
 localStorage.setItem("schedule", JSON.stringify(setData))
 }
+else {
+getData.scheduleArray[i] = time.value
+localStorage.setItem("schedule", JSON.stringify(getData))
+}
 
+}
 
 
 
 function setUpText() { 
-if (setData === null || setData === undefined) {
-return
-}
-else
-{
+if (setData){
 nine.textContent = setData.scheduleArray[0]
 ten.textContent = setData.scheduleArray[1]
 eleven.textContent = setData.scheduleArray[2]
@@ -127,20 +129,12 @@ five.textContent = setData.scheduleArray[8]
 }
 }
 
-
-//when I load the page I need to populate my text areas via the localStorage array. 
-//my text areas are getting that information from the getData variable. Therefore the getData variable HAS to be defined upon the page loading.
-//upon the page loading we need to set getData equal to the localStorage Object 
-//what if it is the first time that local storage exists? That's okay because every other time
-//when i hit a button its sets the text value equal to the proper value of the parsed array
-//
+//The very first time I save it isn't working, but then it sets
 //
 //make a function to get that array and assign it to getData
 
 function setTimeColors (timeBlock, timeNumber){
 var currentHour = moment().format('HH')
-console.log(currentHour.value)
-console.log(typeof(timeNumber.value))
 var red = "list-group-item list-group-item-danger"
 var gray = "list-group-item list-group-item-secondary"
 var green = "list-group-item list-group-item-success"
