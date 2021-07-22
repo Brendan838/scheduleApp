@@ -138,25 +138,24 @@ five.textContent = setData.scheduleArray[8]
 //make a function to get that array and assign it to getData
 
 function setTimeColors (timeBlock, timeNumber){
-var currentHour = moment().format("DD")
+var currentHour = moment().format('HH')
+console.log(currentHour.value)
+console.log(typeof(timeNumber.value))
 var red = "list-group-item list-group-item-danger"
 var gray = "list-group-item list-group-item-secondary"
 var green = "list-group-item list-group-item-success"
-
-if (currentHour === timeNumber){
+if (currentHour == timeNumber){
 timeBlock.setAttribute("class", red)
 }
 
-else if (timeNumber < currentHour) {
+if (timeNumber < currentHour) {
 
 timeBlock.setAttribute("class", gray)
 }
-else if (timeNumber > currentHour) {
+if (timeNumber > currentHour) {
 
 timeBlock.setAttribute("class", green)
 }
-else {
-return;
-}
+
 }
 
