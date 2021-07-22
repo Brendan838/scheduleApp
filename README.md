@@ -4,4 +4,4 @@ Hello! This project involved using html, css, and javascript as well as some thi
 
 
 
-./assets/screenShot.png
+![Here is a screenshot of my site.](./Assets/screenShot.png)
